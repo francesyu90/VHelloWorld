@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <h1 id="header">
+            {{ message }}
+        </h1>
+        <script>
+            var app = new Vue({
+                el: '#header',
+                data: {
+                    message: 'Hello World'
+                }
+            })
+        </script>
+    </body>
+</html>
