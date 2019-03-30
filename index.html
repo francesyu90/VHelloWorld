@@ -4,16 +4,25 @@
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </head>
     <body>
-        <h1 id="header">
-            {{ message }}
-        </h1>
+        <div id="app">
+            <h1>
+                {{ message }}
+            </h1>
+            <input type="text" v-on:input="changeTitle">
+        </div>
         <script>
+
             var app = new Vue({
-                el: '#header',
+                el: '#app',
                 data: {
                     message: 'Hello World'
+                },
+                methods: {
+                    changeTitle: function(e) {
+                        this.message = e.target.value;
+                    }
                 }
-            })
+            });
         </script>
     </body>
 </html>
