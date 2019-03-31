@@ -18,9 +18,27 @@
                 <a v-bind:href="link"> Google </a>
             </div>
         </div>
+        <div id="exercise">
+            <p>
+                {{ name }} ( {{ age }} )
+            </p>
+            <p>
+                    {{ age * 3 }} 
+            </p>
+            <p>
+                {{ getRandomNumber() }}
+            </p>
+            <div>
+                <img v-bind:src="imgLink" >
+            </div>
+            <div>
+                <input type="text" v-bind:value="name">
+                <input type="text" v-model="name">
+            </div>
+        </div>
         <script>
 
-            var app = new Vue({
+            const app = new Vue({
                 el: '#app',
                 data: {
                     title: 'Hello World',
@@ -34,6 +52,20 @@
                     getMessage: function() {
                         this.title = "Hello!"
                         return this.message;
+                    }
+                }
+            });
+
+            const exercise = new Vue({
+                el: '#exercise',
+                data: {
+                    name: 'Frances Yu',
+                    age: 100,
+                    imgLink: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+                },
+                methods: {
+                    getRandomNumber: function() {
+                        return Math.random();
                     }
                 }
             });
