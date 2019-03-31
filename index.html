@@ -6,7 +6,7 @@
     <body>
         <div id="app">
             <div>
-                    <h1>
+                    <h1 v-once>
                         {{ title }}
                     </h1>
                     <input type="text" v-on:input="changeTitle">
@@ -32,6 +32,7 @@
                         this.title = e.target.value;
                     },
                     getMessage: function() {
+                        this.title = "Hello!"
                         return this.message;
                     }
                 }
