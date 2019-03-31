@@ -5,21 +5,33 @@
     </head>
     <body>
         <div id="app">
-            <h1>
-                {{ message }}
-            </h1>
-            <input type="text" v-on:input="changeTitle">
+            <div>
+                    <h1>
+                        {{ title }}
+                    </h1>
+                    <input type="text" v-on:input="changeTitle">
+            </div>
+            <div>
+                <p>
+                    {{ getMessage() }}
+                </p>
+            </div>
         </div>
         <script>
 
             var app = new Vue({
                 el: '#app',
                 data: {
-                    message: 'Hello World'
+                    title: 'Hello World',
+                    message: 'This is a test!'
+
                 },
                 methods: {
                     changeTitle: function(e) {
-                        this.message = e.target.value;
+                        this.title = e.target.value;
+                    },
+                    getMessage: function() {
+                        return this.message;
                     }
                 }
             });
