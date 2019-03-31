@@ -15,6 +15,7 @@
                 <p>
                     {{ getMessage() }}
                 </p>
+                <a v-bind:href="link"> Google </a>
             </div>
         </div>
         <script>
@@ -23,8 +24,8 @@
                 el: '#app',
                 data: {
                     title: 'Hello World',
-                    message: 'This is a test!'
-
+                    message: 'This is a test!',
+                    link: 'http://www.google.com'
                 },
                 methods: {
                     changeTitle: function(e) {
