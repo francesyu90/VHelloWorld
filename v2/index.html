@@ -4,7 +4,9 @@
             <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </head>
     <body>
+
         <div id="app">
+
             <div v-on:mousemove="updateCoordinates($event)">
                 <img v-bind:src="imgLink">
                 <img v-bind:src="imgLink" v-on:mousemove.stop="">
@@ -14,7 +16,23 @@
                 <input type="text" v-on:keyup.enter="alertMe" >
             </div>
         </div>
+
+        <div id="exercise">
+            <hr>
+            <div>
+                <button v-on:click="alertMe">
+                    Show Alert
+                </button>
+            </div>
+            <div>
+                <input type="text" v-on:input="updateValue">
+                <input type="text" v-on:keydown.enter="updateValue">
+                <p> {{ value }}</p>
+            </div>
+        </div>
+
         <script>
+
             new Vue({
                 el: "#app",
                 data: {
@@ -33,6 +51,21 @@
                     }
                 }
             });
+
+            new Vue({
+                el: "#exercise",
+                data: {
+                    value: 'Hello'
+                },
+                methods: {
+                    alertMe: function(e) {
+                        alert("Alert!");
+                    },
+                    updateValue: function(e) {
+                        this.value = e.target.value;
+                    }
+                }
+            })
         </script>
     </body>
 </html>
