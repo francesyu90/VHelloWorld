@@ -4,10 +4,15 @@
             <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </head>
     <body>
-        <div id="app" v-on:mousemove="updateCoordinates($event)">
-            <img v-bind:src="imgLink">
-            <img v-bind:src="imgLink" v-on:mousemove.stop="">
-            <p> ( {{x}}, {{y}} )</p>
+        <div id="app">
+            <div v-on:mousemove="updateCoordinates($event)">
+                <img v-bind:src="imgLink">
+                <img v-bind:src="imgLink" v-on:mousemove.stop="">
+                <p> ( {{x}}, {{y}} )</p>
+            </div>
+            <div>
+                <input type="text" v-on:keyup.enter="alertMe" >
+            </div>
         </div>
         <script>
             new Vue({
@@ -22,6 +27,9 @@
                     updateCoordinates: function(e) {
                         this.x = e.clientX;
                         this.y = e.clientY;
+                    },
+                    alertMe: function(e) {
+                        alert(e.target.value);
                     }
                 }
             });
