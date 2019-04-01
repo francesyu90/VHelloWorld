@@ -4,7 +4,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </head>
     <body>
-        <div id="app">
+        <div id="app" v-on:mousemove="updateCoordinates">
             <div>
                     <h1 v-once>
                         {{ title }}
@@ -24,6 +24,11 @@
                 <button v-on:click="add">
                     Add
                 </button>
+            </div>
+            <div>
+                <p>
+                    Coordinates: {{ x }}, {{ y }}
+                </p>
             </div>
         </div>
         <div id="exercise">
@@ -52,7 +57,9 @@
                     title: 'Hello World',
                     message: 'This is a test!',
                     link: 'http://www.google.com',
-                    counter: 0
+                    counter: 0,
+                    x: 0,
+                    y: 0
                 },
                 methods: {
                     changeTitle: function(e) {
@@ -64,6 +71,10 @@
                     },
                     add: function() {
                         this.counter++;
+                    },
+                    updateCoordinates: function(e) {
+                        this.x = e.clientX;
+                        this.y = e.clientY;
                     }
                 }
             });
