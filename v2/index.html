@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <div id="app" v-on:mousemove="updateCoordinates($event)">
+            <img v-bind:src="imgLink">
+            <img v-bind:src="imgLink" v-on:mousemove.stop="">
+            <p> ( {{x}}, {{y}} )</p>
+        </div>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    message: "Hello World",
+                    imgLink: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+                    x: 0,
+                    y: 0
+                },
+                methods: {
+                    updateCoordinates: function(e) {
+                        this.x = e.clientX;
+                        this.y = e.clientY;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
