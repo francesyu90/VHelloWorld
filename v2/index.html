@@ -10,10 +10,19 @@
             <div v-on:mousemove="updateCoordinates($event)">
                 <img v-bind:src="imgLink">
                 <img v-bind:src="imgLink" v-on:mousemove.stop="">
-                <p> ( {{x}}, {{y}} )</p>
+                <p> 
+                    ( {{x}}, {{y}} )
+                </p>
             </div>
             <div>
                 <input type="text" v-on:keyup.enter="alertMe" >
+            </div>
+
+            <div>
+                <p>
+                    Name: {{ name }}
+                </p>
+                <input type="text" v-model="name">
             </div>
         </div>
 
@@ -39,7 +48,8 @@
                     message: "Hello World",
                     imgLink: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
                     x: 0,
-                    y: 0
+                    y: 0,
+                    name: ''
                 },
                 methods: {
                     updateCoordinates: function(e) {
