@@ -17,6 +17,14 @@
                 </p>
                 <a v-bind:href="link"> Google </a>
             </div>
+            <div>
+                <p>
+                    Count: {{ counter }}
+                </p>
+                <button v-on:click="add">
+                    Add
+                </button>
+            </div>
         </div>
         <div id="exercise">
             <p>
@@ -43,7 +51,8 @@
                 data: {
                     title: 'Hello World',
                     message: 'This is a test!',
-                    link: 'http://www.google.com'
+                    link: 'http://www.google.com',
+                    counter: 0
                 },
                 methods: {
                     changeTitle: function(e) {
@@ -52,6 +61,9 @@
                     getMessage: function() {
                         this.title = "Hello!"
                         return this.message;
+                    },
+                    add: function() {
+                        this.counter++;
                     }
                 }
             });
