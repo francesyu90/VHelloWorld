@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+
+        <div id="app">
+            <h1>
+                <hello-world msg="Hello World!"></hello-world>
+            </h1>
+        </div>
+
+        <script>
+
+            const cmp = {
+                props: ['msg'],
+                template: '<h1> {{ msg }} </h1>'
+            };
+            
+            new Vue({
+                el: "#app",
+                data: {
+                    msg: "Hello World"
+                },
+                components: {
+                    "hello-world": cmp
+                }
+            });
+        </script>
+    </body>
+</html>
