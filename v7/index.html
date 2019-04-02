@@ -15,7 +15,12 @@
 
             const cmp = {
                 props: ['msg'],
-                template: '<h1> {{ msg }} </h1>'
+                data: function() {
+                    return {
+                        status: 'simple'
+                    };
+                },
+                template: '<h1> {{ msg }} - {{ status }} </h1>',
             };
             
             new Vue({
