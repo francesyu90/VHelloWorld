@@ -37,6 +37,35 @@
                 <input type="text" :value="count">
             </div>
         </div>
+
+        <hr>
+        <hr>
+
+
+        <div id="exercise">
+            <div>
+                <p> 
+                    Current Value: {{ value }}
+                </p>
+                <button @click="value += 5">
+                    Add 5
+                </button>
+                <button @click="value += 1">
+                    Add 1
+                </button>
+                <p>
+                    Result: {{ result }}
+                </p>
+            </div>
+
+            <div>
+                <input type="text" v-model="secondValue">
+                <p>
+                    Second Value: {{ secondValue }}
+                </p>
+            </div>
+        </div>
+
         <script>
             new Vue ({
                 el: "#app",
@@ -55,6 +84,29 @@
                         var vm = this;
                         setTimeout(function() {
                             vm.count = 0;
+                        }, 5000)
+                    }
+                }
+            })
+
+            new Vue({
+                el: "#exercise",
+                data: {
+                    value: 0,
+                    secondValue: ''
+                },
+                computed: {
+                    result: function() {
+                        return (this.value < 37)? "Not there yet!" : "Done!";
+                    }
+                },
+                watch: {
+                    secondValue: function() {
+                        
+                        const vm = this;
+
+                        setTimeout(function() {
+                            vm.secondValue = ''
                         }, 5000)
                     }
                 }
