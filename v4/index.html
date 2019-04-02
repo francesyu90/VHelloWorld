@@ -9,7 +9,7 @@
         <div id="app">
             <h1 
                 @click="attachedRed = !attachedRed"
-                :class="{red: attachedRed}"
+                :class="divClass"
             >
                 {{ message }}
             </h1>
@@ -22,6 +22,14 @@
             data: {
                 message: "Hello World",
                 attachedRed: false
+            },
+            computed: {
+                divClass: function() {
+                    return {
+                        red: this.attachedRed,
+                        blue: !this.attachedRed
+                    }
+                }
             }
         })
         </script>
