@@ -34,6 +34,14 @@
                     </p>
                 </template>
             </div>
+
+            <div>
+                <ul>
+                    <li v-for="color in colors"> 
+                        {{  color }}
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <script>
@@ -42,7 +50,8 @@
                 el: "#app",
                 data: {
                     show: true,
-                    number: 0
+                    number: 0,
+                    colors: ["red", "blue", "green"]
                 }
             })
         </script>
