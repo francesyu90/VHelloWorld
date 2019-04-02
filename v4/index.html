@@ -23,7 +23,16 @@
                     {{ message }}
                 </h1>
 
+                <label>Choose color: </label>
                 <input type="text" v-model="color">
+
+                <label> 
+                    Choose size: 
+                </label>
+                <input type="text" v-model="size">px
+            </div>
+
+            <div :style="divClassI">
             </div>
         </div>
 
@@ -34,13 +43,21 @@
             data: {
                 message: "Hello World",
                 attachedRed: false,
-                color: "red"
+                color: "red",
+                size: 100
             },
             computed: {
                 divClass: function() {
                     return {
                         red: this.attachedRed,
                         blue: !this.attachedRed
+                    }
+                },
+                divClassI: function() {
+                    return {
+                        backgroundColor: this.color,
+                        width: `${this.size}px`,
+                        height: `${this.size}px`
                     }
                 }
             }
