@@ -25,15 +25,16 @@
                 <p>
                     Counter: {{ count }}
                 </p>
-                <button v-on:click="count++">
+                <button @click="count++">
                     Increase
                 </button>
-                <button v-on:click="count--">
+                <button @click="count--">
                     Decrease
                 </button>
                 <p>
                     Result: {{ result }}
                 </p>
+                <input type="text" :value="count">
             </div>
         </div>
         <script>
