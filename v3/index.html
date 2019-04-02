@@ -1,0 +1,63 @@
+<!-- 
+
+    Reference: https://stackoverflow.com/questions/43277705/vuejs-difference-between-computed-property-and-watcher
+
+    methods: 
+        -   when you want to alter a component’s state or 
+        -   when an event has occurred that isn’t necessarily related to the instance data being mutated
+
+    computed properties:
+        - when you want to mutate a property that is dependent upon another property being changed
+        - always run synchronously
+
+    watchers:
+        when you need to perform some logic as a result of a change that took place on a specific data property
+ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <p>
+                    Counter: {{ count }}
+                </p>
+                <button v-on:click="count++">
+                    Increase
+                </button>
+                <button v-on:click="count--">
+                    Decrease
+                </button>
+                <p>
+                    Result: {{ result }}
+                </p>
+            </div>
+        </div>
+        <script>
+            new Vue ({
+                el: "#app",
+                data: {
+                    count: 0
+                },
+                computed: {
+                    result: function() {
+                        return (this.count >= 5)? 
+                            "Greater than or Equal to 5" : 
+                            "Less than 5";
+                    }
+                },
+                watch: {
+                    count: function() {
+                        var vm = this;
+                        setTimeout(function() {
+                            vm.count = 0;
+                        }, 5000)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
