@@ -1,16 +1,19 @@
 <template>
     <div id="app">
         <HelloWorld msg="Hello World"/>
+        <CNavbar />
     </div>
 </template>
 
 <script>
     import HelloWorld from './components/HelloWorld.vue'
+    import CNavbar from './components/CNavbar.vue'
 
     export default {
         name: 'app',
         components: {
-            HelloWorld
+            HelloWorld,
+            CNavbar
         }
     }
 </script>
