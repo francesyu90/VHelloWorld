@@ -15,7 +15,6 @@
         name: "CNavbar",
         data() {
             return {
-                navItems: [ "Home", "About", "Contact"],
                 navItems: [
                     {
                         name: "Home",

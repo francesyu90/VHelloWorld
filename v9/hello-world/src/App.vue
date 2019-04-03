@@ -1,6 +1,13 @@
 <template>
+
     <div id="app">
-        <HelloWorld msg="Hello World"/>
+
+        <HelloWorld 
+            :msg="msg"
+            :count="count"
+            @increase="add"
+        />
+         
         <CNavbar />
     </div>
 </template>
@@ -11,10 +18,21 @@
 
     export default {
         name: 'app',
+        data() {
+            return {
+                count: 0,
+                msg: "Hello World"
+            }
+        },
         components: {
             HelloWorld,
             CNavbar
-        }
+        },
+        methods: {
+            add() {
+                this.count++;
+            }
+        },
     }
 </script>
 
